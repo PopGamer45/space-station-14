@@ -355,3 +355,16 @@
     useDelay: 1
     itemIconStyle: BigAction
     event: !type:ToggleActionEvent
+
+- type: entity
+  id: ActionSwitchAlignment
+  name: Switch Alignment
+  description: Reconsider your life choices and join the dark side. Which one is the dark one? That depends.
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_borg.rsi
+      state: state-laws
+    event: !type:ToggleSwitchAlignmentInterfaceEvent
+    useDelay: 0.5

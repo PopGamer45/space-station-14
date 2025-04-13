@@ -125,6 +125,27 @@
     attributes:
       gender: male
   - type: Sharp
+  - type: SwitchableAlignment
+    alignments:
+    - mindRole: MindRoleGhostRoleNeutral
+      icon:
+        sprite: Interface/Radial/RCD.rsi
+        state: lv_coil
+      toolTip: Peaceful
+    - mindRole: MindRoleGhostRoleFreeAgent
+      icon:
+        sprite: Interface/Radial/RCD.rsi
+        state: mv_coil
+      toolTip: Neutral
+    - mindRole: MindRoleGhostRoleSoloAntagonist
+      icon:
+        sprite: Interface/Radial/RCD.rsi
+        state: hv_coil
+      toolTip: Hostile
+  - type: UserInterface
+    interfaces:
+      enum.SwitchAlignmentUiKey.Key:
+        type: SwitchAlignmentBoundUserInterface
 
 - type: entity
   id: MobRatKingBuff
