@@ -2,18 +2,19 @@ using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
-using Content.Server.Mind;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
-namespace Content.Server.Mind;
+namespace Content.Server.Roles;
 
 public sealed class SwitchableAlignmentSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
     public override void Initialize()
     {
@@ -51,19 +52,16 @@ public sealed class SwitchableAlignmentSystem : EntitySystem
 
     private void OnSwitchAlignmentMessage(EntityUid uid, SwitchableAlignmentComponent component, SwitchAlignmentMessage args)
     {
-        if (!_mind.TryGetMind(uid, out var mindId, out _))
+        if (!_mind.TryGetMind(uid, out var mindId, out var mindComp))
             return;
 
-        if (!EntityManager.ComponentFactory.TryGetRegistration(args.Alignment.MindRole, out var role))
-            return;
+        if (_roles.MindHasRole(mindId, _componentFactory.GetRegistration(args.MindRoleTagComp).Type, out var role))
+            _entityManager.DeleteEntity(role);
 
-        if (!_roles.MindHasRole(mindId, role.Type, out _))
+        _roles.MindAddRole(mindId, args.MindRole, silent: true);
+        if (component.SingleUse && TryComp(uid, out ActionsComponent? comp))
         {
-            _roles.MindAddRole(mindId, args.Alignment.MindRole, silent: true);
-            if (component.SingleUse && TryComp(uid, out ActionsComponent? comp))
-            {
                 _actions.RemoveAction(uid, component.ActionSwitchAlignmentEntity, comp);
-            }
         }
     }
 }

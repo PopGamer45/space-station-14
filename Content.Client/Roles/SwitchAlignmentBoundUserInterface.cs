@@ -1,11 +1,11 @@
 using Content.Client.UserInterface.Controls;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
+using Content.Shared.Roles;
 using Robust.Client.UserInterface;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
-namespace Content.Client.Mind;
+namespace Content.Client.Roles;
 
 public sealed class SwitchAlignmentBoundUserInterface : BoundUserInterface
 {
@@ -37,7 +37,12 @@ public sealed class SwitchAlignmentBoundUserInterface : BoundUserInterface
         for (int i = 0; i < alignments.Count; i++)
         {
             var alignment = alignments[i];
-            models[i] = new RadialMenuActionOption<AlignmentChoiceEntry>(HandleRadialMenuClick, alignment);
+            var actionOption = new RadialMenuActionOption<AlignmentChoiceEntry>(HandleRadialMenuClick, alignment)
+            {
+                Sprite = alignment.Icon,
+                ToolTip = alignment.ToolTip
+            };
+            models[i] = actionOption;
         }
 
         return models;

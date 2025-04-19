@@ -127,20 +127,23 @@
   - type: Sharp
   - type: SwitchableAlignment
     alignments:
-    - mindRole: MindRoleGhostRoleNeutral
+    - mindRole: MindRolePeacefulRatKing
+      mindRoleTagComponent: PeacefulRatKingRole
       icon:
-        sprite: Interface/Radial/RCD.rsi
-        state: lv_coil
+        sprite: Objects/Tools/cable-coils.rsi
+        state: coillv-30
       toolTip: Peaceful
-    - mindRole: MindRoleGhostRoleFreeAgent
+    - mindRole: MindRoleFreeRatKing
+      mindRoleTagComponent: FreeRatKingRole
       icon:
-        sprite: Interface/Radial/RCD.rsi
-        state: mv_coil
+        sprite: Objects/Tools/cable-coils.rsi
+        state: coilmv-30
       toolTip: Neutral
-    - mindRole: MindRoleGhostRoleSoloAntagonist
+    - mindRole: MindRoleHostileRatKing
+      mindRoleTagComponent: HostileRatKingRole
       icon:
-        sprite: Interface/Radial/RCD.rsi
-        state: hv_coil
+        sprite: Objects/Tools/cable-coils.rsi
+        state: coilhv-30
       toolTip: Hostile
   - type: UserInterface
     interfaces:

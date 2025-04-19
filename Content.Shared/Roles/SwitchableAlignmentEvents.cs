@@ -1,17 +1,20 @@
 using Content.Shared.Actions;
-using Content.Shared.Mind.Components;
+using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Mind;
+namespace Content.Shared.Roles;
 
 [Serializable, NetSerializable]
 public sealed class SwitchAlignmentMessage : BoundUserInterfaceMessage
 {
-    public AlignmentChoiceEntry Alignment;
+    public EntProtoId MindRole;
+    public string MindRoleTagComp;
 
     public SwitchAlignmentMessage(AlignmentChoiceEntry alignment)
     {
-        Alignment = alignment;
+        MindRole = alignment.MindRole;
+        MindRoleTagComp = alignment.MindRoleTagComponent;
     }
 }
 

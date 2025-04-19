@@ -146,6 +146,28 @@
   - type: RoleBriefing
     briefing: dragon-role-briefing
 
+# Rat King Alignments
+- type: entity
+  parent: MindRoleGhostRoleFreeAgent
+  id: MindRoleFreeRatKing
+  name: Free Rat King Role
+  components:
+  - type: FreeRatKingRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleHostileRatKing
+  name: Hostile Rat King Role
+  components:
+  - type: HostileRatKingRole
+
+- type: entity
+  parent: BaseMindRole
+  id: MindRolePeacefulRatKing
+  name: Peaceful Rat King Role
+  components:
+  - type: PeacefulRatKingRole
+
 # Ninja
 - type: entity
   parent: BaseMindRoleAntag

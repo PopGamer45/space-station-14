@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Mind.Components;
+namespace Content.Shared.Roles;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SwitchableAlignmentComponent : Component
@@ -21,11 +21,14 @@ public sealed partial class SwitchableAlignmentComponent : Component
     public bool SingleUse = true;
 }
 
-[Serializable, NetSerializable]
+[DataDefinition, Serializable, NetSerializable]
 public sealed partial class AlignmentChoiceEntry
 {
     [DataField(required: true)]
     public EntProtoId MindRole;
+
+    [DataField(required: true)]
+    public string MindRoleTagComponent = String.Empty;
 
     [DataField]
     public SpriteSpecifier? Icon;
