@@ -125,30 +125,24 @@
     attributes:
       gender: male
   - type: Sharp
-  - type: SwitchableAlignment
+  - type: SwitchableMindRole
     alignments:
     - mindRole: MindRolePeacefulRatKing
       mindRoleTagComponent: PeacefulRatKingRole
       icon:
         sprite: Objects/Tools/cable-coils.rsi
         state: coillv-30
-      toolTip: Peaceful
-    - mindRole: MindRoleFreeRatKing
-      mindRoleTagComponent: FreeRatKingRole
-      icon:
-        sprite: Objects/Tools/cable-coils.rsi
-        state: coilmv-30
-      toolTip: Neutral
+      toolTip: Declare peace!
     - mindRole: MindRoleHostileRatKing
       mindRoleTagComponent: HostileRatKingRole
       icon:
         sprite: Objects/Tools/cable-coils.rsi
         state: coilhv-30
-      toolTip: Hostile
+      toolTip: Wage war!
   - type: UserInterface
     interfaces:
-      enum.SwitchAlignmentUiKey.Key:
-        type: SwitchAlignmentBoundUserInterface
+      enum.SwitchMindRoleUiKey.Key:
+        type: SwitchMindRoleBoundUserInterface
 
 - type: entity
   id: MobRatKingBuff

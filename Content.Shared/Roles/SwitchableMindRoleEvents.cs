@@ -6,25 +6,25 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Roles;
 
 [Serializable, NetSerializable]
-public sealed class SwitchAlignmentMessage : BoundUserInterfaceMessage
+public sealed class SwitchMindRoleMessage : BoundUserInterfaceMessage
 {
     public EntProtoId MindRole;
     public string MindRoleTagComp;
 
-    public SwitchAlignmentMessage(AlignmentChoiceEntry alignment)
+    public SwitchMindRoleMessage(AlignmentChoiceEntry alignment)
     {
         MindRole = alignment.MindRole;
         MindRoleTagComp = alignment.MindRoleTagComponent;
     }
 }
 
-public sealed partial class ToggleSwitchAlignmentInterfaceEvent : InstantActionEvent
+public sealed partial class ToggleSwitchMindRoleInterfaceEvent : InstantActionEvent
 {
 
 }
 
 [Serializable, NetSerializable]
-public enum SwitchAlignmentUiKey : byte
+public enum SwitchMindRoleUiKey : byte
 {
     Key
 }

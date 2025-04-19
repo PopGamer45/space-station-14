@@ -7,11 +7,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Roles;
 
-public sealed class SwitchAlignmentBoundUserInterface : BoundUserInterface
+public sealed class SwitchMindRoleBoundUserInterface : BoundUserInterface
 {
     private SimpleRadialMenu? _menu;
 
-    public SwitchAlignmentBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    public SwitchMindRoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         IoCManager.InjectDependencies(this);
     }
@@ -20,7 +20,7 @@ public sealed class SwitchAlignmentBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        if (!EntMan.TryGetComponent<SwitchableAlignmentComponent>(Owner, out var comp))
+        if (!EntMan.TryGetComponent<SwitchableMindRoleComponent>(Owner, out var comp))
             return;
 
         _menu = this.CreateWindow<SimpleRadialMenu>();
@@ -50,6 +50,6 @@ public sealed class SwitchAlignmentBoundUserInterface : BoundUserInterface
 
     private void HandleRadialMenuClick(AlignmentChoiceEntry alignment)
     {
-        SendMessage(new SwitchAlignmentMessage(alignment));
+        SendMessage(new SwitchMindRoleMessage(alignment));
     }
 }

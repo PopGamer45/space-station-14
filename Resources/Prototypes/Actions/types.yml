@@ -357,14 +357,14 @@
     event: !type:ToggleActionEvent
 
 - type: entity
-  id: ActionSwitchAlignment
-  name: Switch Alignment
-  description: Reconsider your life choices and join the dark side. Which one is the dark one? That depends.
+  id: ActionSwitchMindRole
+  name: Declare intentions
+  description: Either declare peace or wage war, your royal code making you honor bound to follow those intentions.
   components:
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
       sprite: Interface/Actions/actions_borg.rsi
       state: state-laws
-    event: !type:ToggleSwitchAlignmentInterfaceEvent
+    event: !type:ToggleSwitchMindRoleInterfaceEvent
     useDelay: 0.5

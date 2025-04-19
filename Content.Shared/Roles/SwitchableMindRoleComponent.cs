@@ -6,13 +6,13 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Roles;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class SwitchableAlignmentComponent : Component
+public sealed partial class SwitchableMindRoleComponent : Component
 {
     [DataField]
-    public EntProtoId ActionSwitchAlignment = "ActionSwitchAlignment";
+    public EntProtoId ActionSwitchMindRole = "ActionSwitchMindRole";
 
     [DataField]
-    public EntityUid? ActionSwitchAlignmentEntity;
+    public EntityUid? ActionSwitchMindRoleEntity;
 
     [DataField(required: true)]
     public List<AlignmentChoiceEntry> Alignments;
