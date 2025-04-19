@@ -362,9 +362,8 @@
   description: Either declare peace or wage war, your royal code making you honor bound to follow those intentions.
   components:
   - type: InstantAction
-    itemIconStyle: NoItem
     icon:
-      sprite: Interface/Actions/actions_borg.rsi
-      state: state-laws
+      sprite: Interface/Actions/actions_rat_king.rsi
+      state: declare
     event: !type:ToggleSwitchMindRoleInterfaceEvent
     useDelay: 0.5
